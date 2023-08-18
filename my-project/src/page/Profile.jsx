@@ -21,8 +21,8 @@ export default function Profile() {
   const navigate = useNavigate();
 
   const auth = getAuth();
-  const [listings, setListings] = useState("");
-  const [loading, setLoading] = useState();
+  const [listings, setListings] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const [changeDetail, setChangeDetail] = useState(false);
   const [formData, setFormData] = useState({
@@ -72,7 +72,7 @@ export default function Profile() {
       querySnap.forEach((doc) => {
         return listings.push({
           id: doc.id,
-          data: doc.data,
+          data: doc.data(),
         });
       });
       setListings(listings);
@@ -145,15 +145,17 @@ export default function Profile() {
       <div className="max-w-6xl px-3 mt-6 mx-auto">
         {!loading && listings.length > 0 && (
           <>
-            <h2 className="2xl text-center font-semibold ">My Listings</h2>
-            <ul>
-              {listings.map((listing) => {
+            <h2 className="text-2xl text-center font-semibold mb-6">
+              My Listings
+            </h2>
+            <ul className="sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl-grid-cols-5 mt-6 mb-6 ">
+              {listings.map((listing) => (
                 <ListingItem
                   key={listing.id}
                   id={listing.id}
                   listing={listing.data}
-                />;
-              })}
+                />
+              ))}
             </ul>
           </>
         )}
