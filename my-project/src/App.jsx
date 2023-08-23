@@ -12,6 +12,9 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CreateListing from "./page/CreateListing";
 import EditListing from "./page/EditListing";
+import Listing from "./page/Listing";
+import "@splidejs/splide/dist/css/themes/splide-default.min.css";
+
 function App() {
   return (
     <>
@@ -26,6 +29,10 @@ function App() {
           <Route path="/sign-up" element={<Signup />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/offers" element={<Offers />} />
+          <Route
+            path="/category/:categoryName/:listingId"
+            element={<Listing />}
+          />
           <Route path="create-listings" element={<PrivateRoute />}>
             <Route path="/create-listings" element={<CreateListing />} />
           </Route>
