@@ -1,5 +1,9 @@
 import React from "react";
-
+import Slidding from "../components/Slidding";
 export default function Home() {
-  return <div>Home</div>;
+  return (
+    <div>
+      <Slidding />
+    </div>
+  );
 }
