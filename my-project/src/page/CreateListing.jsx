@@ -160,7 +160,7 @@ export default function CreateListing() {
           <button
             type="button"
             id="type"
-            value="sell"
+            value="sale"
             onClick={onChange}
             className={`mr-3 px-7 py-3 font-medium text-sm uppercase shadow-md rounded hover:shadow-lg focus:shadow-lg active:shadow-lg transition duration-150 ease-out w-full ${
               type === "rent"
